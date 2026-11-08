@@ -1,31 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=search" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=search_location_on" />
+
 </head>
+
 <body>
-    <div id="current">
-        <header class ="input-container">
-            <input class = "city-input" placeholder="Search City" type = "text">
+    <main class="main-Box">
+        <header class="input-container">
+            <input class="city-input" placeholder="Search City" type="text">
             <button class="Search-btn">
-            <span class="material-symbols-outlined">
-                search
-            </span>
-        </button>    
+                <span class="material-symbols-outlined">
+                    search
+                </span>
+            </button>
         </header>
-        <div>
-            <p id="time"></p>
-            <p id="temp"></p>
-            <p id="current-text"></p>
-        </div>
-        <div id="img"></div>
-    </div>
+
+        <section class="Weather-info">
+            <div class="location-date-container">
+                <div class="locationa">
+                    <span class="material-symbols-outlined">
+                        location_on
+                    </span>
+                    <h4 class="country-txt">Sri Lanka</h4>
+                </div>
+                <h5 class="current-date-txt regular-txt">sun, 07 November</h5>
+            </div>
+
+            <div class="weather-summary-container">
+                <img src="assets\cloud.png" class="weather-summary-img">
+                <div class="weather-summary-info">
+                    <h1 class="temp-txt">29°C</h1>
+                    <h3 class="condition-txt regular-txt">Clouds</h3>
+                </div>
+            </div>
+
+            <div class="weather-conditions-container">
+                <div class="conditions-item">
+                    <span class="material-symbols-outlined">
+                        water_drop
+                    </span>
+                    <div class="condition-info">
+                        <h5 class="regular-text">Humidity</h5>
+                        <h5 class="Humidity-value-text">50%</h5>
+                    </div>
+                </div>
+
+                <div class="conditions-item">
+                    <span class="material-symbols-outlined">
+                        water_drop
+                    </span>
+                    <div class="condition-info">
+                        <h5 class="regular-text">Humidity</h5>
+                        <h5 class="Humidity-value-text">50%</h5>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
 
     <script src="app.js"></script>
 </body>
+
 </html>
