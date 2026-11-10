@@ -138,8 +138,8 @@ body::before{
 .forecast-items-container{
     display: flex;
     gap: 15px;
-    overflow: scroll;
-    padding-bottom: 12px;
+    overflow:auto;
+    padding-bottom: 10px;
 }
 
 .forecast-items-container::-webkit-scrollbar{
@@ -167,10 +167,25 @@ body::before{
     padding: 10px;
     align-items: center;
     border-radius: 12px;
+    transition: 0.03s background;
+}
 
+.forecast-item:hover{
+    background: rgb(255,255,255,0.15);
 }
 
 .forecast-item-img{
     width: 35px;
     height: 35px;
+}
+
+.section-msg{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.msg-img{
+    height: 180px;
+    width: fit-content;
 }
