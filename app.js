@@ -1,11 +1,14 @@
-fetch("https://api.weatherapi.com/v1/forecast.json?key=f7ee12e0d9ec4b9d948105446261210&q=Colombo&days=7")
-.then(response => response.json())
-.then(data => {
-    console.log(data);
+// const API_KEY = "f7ee12e0d9ec4b9d948105446261210";
 
-  /*  document.getElementById("time").innerText = data.current.last_updated;
-    document.getElementById("temp").innerText = data.current.temp_c;
-    document.getElementById("current-text").innerText = data.current.condition.text;
-    document.getElementById("img").innerHTML = `<img src="${data.current.condition.icon}">`;
-*/
-});
+// async function getWeather(city = "Colombo") {
+//     const url = `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${encodeURIComponent(city)}&days=7`;
+//     const response = await fetch(url);
+
+//     if (!response.ok) {
+//         throw new Error("Unable to retrieve weather data.");
+//     }
+
+//     return response.json();
+//}
+
+
