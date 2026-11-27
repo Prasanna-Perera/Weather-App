@@ -28,25 +28,29 @@ function showSection(activeSection) {
 
 function displayForecast(forecastDays) {
     const container = document.querySelector(".forecast-items-container");
-    container.innerHTML = "";
-
-    const hourlyData = forecastDays[0].hour;
+    const hourlyData = forecastDays?.[0]?.hour || [];
     const selectedHours = [9, 12, 15, 18];
 
-    selectedHours.forEach((hour) => {
-        const hourItem = hourlyData[hour];
-        const time = hourItem.time.split(" ")[1];
-        const temp = Math.round(hourItem.temp_c);
-        const icon = `https:${hourItem.condition.icon}`;
+    const itemsHtml = selectedHours
+        .map((hour) => {
+            const hourItem = hourlyData[hour];
+            if (!hourItem) return "";
 
-        container.innerHTML += `
-            <div class="forecast-item">
-                <h5 class="forecast-item-date regular-text">${time}</h5>
-                <img src="${icon}" class="forecast-item-img" alt="${hourItem.condition.text}">
-                <h5 class="forecast-item-temp">${temp} °C</h5>
-            </div>
-        `;
-    });
+            const time = hourItem.time.split(" ")[1];
+            const temp = Math.round(hourItem.temp_c);
+            const icon = `https:${hourItem.condition.icon}`;
+
+            return `
+                <div class="forecast-item">
+                    <h5 class="forecast-item-date regular-text">${time}</h5>
+                    <img src="${icon}" class="forecast-item-img" alt="${hourItem.condition.text}">
+                    <h5 class="forecast-item-temp">${temp} °C</h5>
+                </div>
+            `;
+        })
+        .join("");
+
+    container.innerHTML = itemsHtml;
 }
 
 function displayWeather(data) {
@@ -74,24 +78,21 @@ async function loadWeather(city = "Colombo") {
     }
 }
 
-searchBtn.addEventListener("click", () => {
+function handleSearch() {
     const city = cityInput.value.trim();
     if (city !== "") {
         loadWeather(city);
         cityInput.value = "";
         cityInput.blur();
     }
-});
+}
+
+searchBtn.addEventListener("click", handleSearch);
 
 cityInput.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
-        const city = cityInput.value.trim();
-        if (city !== "") {
-            loadWeather(city);
-            cityInput.value = "";
-            cityInput.blur();
-        }
+        handleSearch();
     }
 });
 
-//loadWeather();
+// loadWeather();
